@@ -8,9 +8,15 @@ import homescr from './homescr';
 import reports from './reports';
 import presc from './presc';
 import setings from './settings';
+import ScanScreen from './scanscreen';
 
 export default class  RouterComponent extends Component
 {
+  onLogOut()
+  {
+    Actions.home();
+  }
+  
   render()
   {
   return(
@@ -49,6 +55,13 @@ export default class  RouterComponent extends Component
             <Scene key="temp"
             component={pdfvie} 
             title={"Report View"}/> 
+          </Scene>
+          <Scene key="scan">
+            <Scene key="temp"
+            component={ScanScreen} 
+            title={"Create Session"}
+            renderBackButton=""
+            onLeft={this.onLogOut.bind(this)}/> 
           </Scene>
       </Scene>
     </Router>
