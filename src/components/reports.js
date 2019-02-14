@@ -20,7 +20,7 @@ export default class reports extends React.Component {
               </Body>
               <Right>
                 <Text note style={styles.centerText}>03/06/2018</Text>
-                <Button transparent onPress={Actions.pdf.bind(this)}>
+                <Button transparent onPress={Actions.pdf.bind(this,{url:'https://res.cloudinary.com/doweee6jj/image/upload/v1547263956/hpmh1ojmsa18pl4tw2og.pdf'})}>
                   <Text>View Report</Text>
                 </Button>
               </Right>
