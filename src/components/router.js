@@ -1,6 +1,6 @@
 import React,{Component}from 'react';
 import {AsyncStorage} from 'react-native';
-import {Router,Scene,Actions} from 'react-native-router-flux';
+import {Router,Scene,Actions,ActionConst} from 'react-native-router-flux';
 import pdfvie from './pdfvie';
 import sample from './sample';
 import Footerapp from './footerapp';
@@ -31,7 +31,7 @@ export default class  RouterComponent extends Component
             component={Footerapp} 
             title={"Footer View"}/> 
           </Scene> */}
-          <Scene key="home" hideNavBar>
+          <Scene key="home" hideNavBar type={ActionConst.RESET}>
             <Scene key="temp"
             component={homescr} 
             title={"Report View"}/> 

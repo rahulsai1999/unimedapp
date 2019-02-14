@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, View} from 'react-native';
 import Footerapp from './footerapp';
-import { Container, Header, Card, CardItem , Content, Button, Text, Body ,H3,Right,List,ListItem} from 'native-base';
+import { Container, Header,Fab,Icon,Card, CardItem , Content, Button, Text, Body ,H3,Right,List,ListItem} from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
 export default class reports extends React.Component {
@@ -27,6 +27,14 @@ export default class reports extends React.Component {
             </ListItem>
           </List>
         </Content>
+        <Fab
+            direction="up"
+            containerStyle={{ }}
+            style={{ backgroundColor: '#5067FF' }}
+            position="bottomRight"
+            onPress={Actions.setings.bind(this)}>
+            <Icon name="ios-battery-charging" />
+            </Fab>
       </Container>
         <Footerapp/>
       </View>
