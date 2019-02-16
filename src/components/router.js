@@ -9,14 +9,18 @@ import reports from './reports';
 import presc from './presc';
 import setings from './settings';
 import ScanScreen from './scanscreen';
+import medicine from './medicine';
+import LoginForm from './login';
+import RegisterF from './register';
+
 
 export default class  RouterComponent extends Component
 {
-  onLogOut()
+  onLeftmet()
   {
     Actions.home();
   }
-  
+
   render()
   {
   return(
@@ -26,11 +30,6 @@ export default class  RouterComponent extends Component
             <Scene key="login" component={LoginForm} title={"Login"}  />
             <Scene key="register" component={RegisterF} title={"Register"} />
         </Scene> */}
-          {/* <Scene key="Footer" hideNavBar>
-            <Scene key="temp"
-            component={Footerapp} 
-            title={"Footer View"}/> 
-          </Scene> */}
           <Scene key="home" hideNavBar type={ActionConst.RESET}>
             <Scene key="temp"
             component={homescr} 
@@ -56,12 +55,17 @@ export default class  RouterComponent extends Component
             component={pdfvie} 
             title={"Report View"}/> 
           </Scene>
+          <Scene key="medicine" hideNavBar>
+            <Scene key="temp"
+            component={medicine} 
+            title={"Report View"}/> 
+          </Scene>
           <Scene key="scan">
             <Scene key="temp"
             component={ScanScreen} 
             title={"Create Session"}
             renderBackButton=""
-            onLeft={this.onLogOut.bind(this)}/> 
+            onLeft={this.onLeftmet.bind(this)}/> 
           </Scene>
       </Scene>
     </Router>

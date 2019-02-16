@@ -32,7 +32,7 @@ export default class reports extends React.Component {
             containerStyle={{ }}
             style={{ backgroundColor: '#5067FF' }}
             position="bottomRight"
-            onPress={Actions.setings.bind(this)}>
+            onPress={Actions.medicine.bind(this)}>
             <Icon name="ios-battery-charging" />
             </Fab>
       </Container>
