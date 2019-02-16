@@ -10,39 +10,10 @@ export default class homescr extends React.Component {
       <Container>
         <Header><Text style={{color:'white',marginTop:15,fontSize:20 }}>Home</Text></Header>
         <Content padder>
-          <Card>
-            <CardItem header bordered>
-              <Text>NativeBase</Text>
-            </CardItem>
-            <CardItem bordered>
-              <Body>
-                <Text>
-                  NativeBase is a free and open source framework that enable
-                </Text>
-              </Body>
-            </CardItem>
-            <CardItem footer bordered>
-              <Text>GeekyAnts</Text>
-            </CardItem>
-          </Card>
-          <Card>
-            <CardItem header bordered>
-              <Text>NativeBase</Text>
-            </CardItem>
-            <CardItem bordered>
-              <Body>
-                <Text>
-                  NativeBase is a free and open source framework that enable
-                </Text>
-              </Body>
-            </CardItem>
-            <CardItem footer bordered>
-              <Text>GeekyAnts</Text>
-            </CardItem>
-          </Card>
+          <Text>Home Screen</Text>
         </Content>
       </Container>
-        <Footerapp/>
+      <Footerapp/>
       </View>
     );
   }

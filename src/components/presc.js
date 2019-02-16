@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, View} from 'react-native';
 import Footerapp from './footerapp';
 import { Container, Header, Card, CardItem , Content, Button, Text, Body,ListItem,CheckBox,Right} from 'native-base';
-import Icon from 'react-native-vector-icons/Feather';
-import Icon2 from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Actions } from 'react-native-router-flux';
 
 export default class presc extends React.Component {
   render() {
@@ -11,7 +11,7 @@ export default class presc extends React.Component {
       <View style={{height:1460}}>
       <Container>
         <Header><Text style={{color:'white',marginTop:15,fontSize:20 }}>Prescriptions</Text></Header>
-        <Content>
+        <Content style={styles.centerText}>
         <Card>
           <CardItem header>
               <Text>Dr.Rajmohan</Text>
@@ -20,27 +20,45 @@ export default class presc extends React.Component {
               </Right>
           </CardItem>
           <CardItem>
-            <Text>Paracetamol</Text>
+            <Text style={styles.centerText}>Crocin 10mg</Text>
               <Right>
-                <Icon name="sunrise" size={25} color="orange" /><Icon name="sun" size={25} color="orange" />
-                <Icon name="sunset" size={25} color="orange" />
-                <Icon2 name="ios-cloudy-night" size={25} color="black" />
+                <Text>
+                <Icon name="weather-sunset-up" size={25} color="orange" />
+                <Icon name="weather-sunny" size={25} color="orange" />
+                <Icon name="weather-sunset-down" size={25} color="black" />
+                <Icon name="weather-night" size={25} color="black" />
+                </Text>
+              </Right>
+              <Right>
+                <Button  onPress={Actions.medicine.bind(this)}  style={styles.custbutton}><Text><Icon name="arrow-right" size={20}></Icon></Text></Button>
               </Right>
           </CardItem>
           <CardItem>
-            <Text>Paracetamol</Text>
+            <Text style={styles.centerText}>Zole F 20%</Text>
               <Right>
-                <Icon name="sunrise" size={25} color="orange" /><Icon name="sun" size={25} color="orange" />
-                <Icon name="sunset" size={25} color="orange" />
-                <Icon2 name="ios-cloudy-night" size={25} color="black" />
+                <Text>
+                <Icon name="weather-sunset-up" size={25} color="orange" />
+                <Icon name="weather-sunny" size={25} color="black" />
+                <Icon name="weather-sunset-down" size={25} color="black" />
+                <Icon name="weather-night" size={25} color="orange" />
+                </Text>
+              </Right>
+              <Right>
+                <Button  onPress={Actions.medicine.bind(this)}  style={styles.custbutton}><Text><Icon name="arrow-right" size={20}></Icon></Text></Button>
               </Right>
           </CardItem>
           <CardItem>
-            <Text>Paracetamol</Text>
+            <Text style={styles.centerText}>Combiflam 15mg</Text>
               <Right>
-                <Icon name="sunrise" size={25} color="orange" /><Icon name="sun" size={25} color="orange" />
-                <Icon name="sunset" size={25} color="orange" />
-                <Icon2 name="ios-cloudy-night" size={25} color="black" />
+                <Text>
+                <Icon name="weather-sunset-up" size={25} color="orange" />
+                <Icon name="weather-sunny" size={25} color="orange" />
+                <Icon name="weather-sunset-down" size={25} color="orange" />
+                <Icon name="weather-night" size={25} color="black" />
+                </Text>
+              </Right>
+              <Right>
+                <Button  onPress={Actions.medicine.bind(this)}  style={styles.custbutton}><Text><Icon name="arrow-right" size={20}></Icon></Text></Button>
               </Right>
           </CardItem>
         </Card>
@@ -52,3 +70,25 @@ export default class presc extends React.Component {
   }
 }
 
+const styles = StyleSheet.create({
+  centerText: {
+    flex: 1,
+    fontSize: 18,
+    padding: 5,
+    color: 'black',
+  },
+  textBold: {
+    fontWeight: '500',
+    color: '#000',
+  },
+  buttonText: {
+    fontSize: 21
+  },
+  buttonTouchable: {
+    padding: 16,
+  },
+  custbutton:{
+    borderRadius:50,
+    maxWidth:50
+  }
+});
