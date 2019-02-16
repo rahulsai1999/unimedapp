@@ -22,6 +22,10 @@ export default class Footerapp extends Component {
             </Button>
             <Button vertical onPress={Actions.scan.bind(this)}>
               <Icon name="settings" />
+              <Text>Session</Text>
+            </Button>
+            <Button vertical onPress={Actions.setings.bind(this)}>
+              <Icon name="settings" />
               <Text>Settings</Text>
             </Button>
           </FooterTab>

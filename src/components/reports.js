@@ -34,7 +34,7 @@ export default class reports extends React.Component {
             position="bottomRight"
             onPress={Actions.medicine.bind(this)}>
             <Icon name="ios-battery-charging" />
-            </Fab>
+        </Fab>
       </Container>
         <Footerapp/>
       </View>
