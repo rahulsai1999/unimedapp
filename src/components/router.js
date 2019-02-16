@@ -2,8 +2,6 @@ import React,{Component}from 'react';
 import {AsyncStorage} from 'react-native';
 import {Router,Scene,Actions,ActionConst} from 'react-native-router-flux';
 import pdfvie from './pdfvie';
-import sample from './sample';
-import Footerapp from './footerapp';
 import homescr from './homescr';
 import reports from './reports';
 import presc from './presc';
@@ -12,6 +10,8 @@ import ScanScreen from './scanscreen';
 import medicine from './medicine';
 import LoginForm from './login';
 import RegisterF from './register';
+import splashbefore from "./splashbefore";
+import splashafter from './splashafter';
 
 
 export default class  RouterComponent extends Component
@@ -26,10 +26,12 @@ export default class  RouterComponent extends Component
   return(
     <Router>
       <Scene key="root" hideNavBar>
-        {/* <Scene key="auth">
-            <Scene key="login" component={LoginForm} title={"Login"}  />
-            <Scene key="register" component={RegisterF} title={"Register"} />
-        </Scene> */}
+          <Scene key="auth">
+            <Scene key="splashbef" component={splashbefore} hideNavBar/>
+            <Scene key="splashaft" component={splashafter} hideNavBar/>
+            <Scene key="login" component={LoginForm} hideNavBar/>
+            <Scene key="register" component={RegisterF} hideNavBar />
+          </Scene>
           <Scene key="home" hideNavBar type={ActionConst.RESET}>
             <Scene key="temp"
             component={homescr} 
