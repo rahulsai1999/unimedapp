@@ -1,30 +1,23 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, View} from 'react-native';
+import {Platform, StyleSheet, View,AsyncStorage} from 'react-native';
 import Footerapp from './footerapp';
 import { Container, Header, Card, CardItem , Content, Button, Text, Body} from 'native-base';
+import {Actions} from 'react-native-router-flux';
 
 export default class setings extends React.Component {
+  
+  onlogout()
+  {
+    AsyncStorage.removeItem('token');
+    Actions.auth()
+  }
   render() {
     return (
       <View style={{height:1460}}>
       <Container>
         <Header><Text style={{color:'white',marginTop:15,fontSize:20 }}>Settings</Text></Header>
         <Content padder>
-          <Card>
-            <CardItem header bordered>
-              <Text>NativeBase</Text>
-            </CardItem>
-            <CardItem bordered>
-              <Body>
-                <Text>
-                  NativeBase is a free and open source framework that enable
-                </Text>
-              </Body>
-            </CardItem>
-            <CardItem footer bordered>
-              <Text>Geeky Ants</Text>
-            </CardItem>
-          </Card>
+          <Button danger onPress={this.onlogout.bind(this)}><Text>Logout</Text></Button>
         </Content>
       </Container>
         <Footerapp/>

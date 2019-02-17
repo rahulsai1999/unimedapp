@@ -3,7 +3,7 @@ import {Platform, StyleSheet, View} from 'react-native';
 import { Container, Header, Card, CardItem , Content, Button, Text, Body} from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
-export default class splashafter extends React.Component {
+export default class Register extends React.Component {
   render() {
     return (
       <View style={{height:1460}}>
