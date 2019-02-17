@@ -26,7 +26,7 @@ export default class  RouterComponent extends Component
     <Router>
       <Scene key="root" hideNavBar>
           <Scene key="auth">
-            {/* <Scene key="splashbef" component={splashbefore} hideNavBar/> */}
+            <Scene key="splashbef" component={splashbefore} hideNavBar/>
             <Scene key="login" component={LoginForm} hideNavBar/>
             <Scene key="register" component={RegisterF} hideNavBar />
           </Scene>
