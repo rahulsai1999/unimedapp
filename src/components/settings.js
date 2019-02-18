@@ -9,7 +9,7 @@ export default class setings extends React.Component {
   onlogout()
   {
     AsyncStorage.removeItem('token');
-    Actions.login()
+    Actions.auth()
   }
   render() {
     return (
