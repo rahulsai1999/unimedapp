@@ -10,8 +10,8 @@ import ScanScreen from './scanscreen';
 import medicine from './medicine';
 import LoginForm from './login';
 import RegisterF from './register';
-import splashbefore from "./splashbefore";
-
+import splashbefore from './splashbefore';
+import scanafter from './scanafter';
 
 export default class  RouterComponent extends Component
 {
@@ -66,6 +66,11 @@ export default class  RouterComponent extends Component
             title={"Create Session"}
             renderBackButton=""
             onLeft={this.onLeftmet.bind(this)}/> 
+          </Scene>
+          <Scene key="scanafter">
+            <Scene key="temp"
+            component={scanafter} 
+            title={"Session Created"}/> 
           </Scene>
       </Scene>
     </Router>

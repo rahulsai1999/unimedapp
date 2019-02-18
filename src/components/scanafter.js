@@ -6,7 +6,7 @@ export default class scanafter extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-      //use this.props.anything to use 
+      <Text>{this.props.message.message1}</Text>
       </View>
     );
   }

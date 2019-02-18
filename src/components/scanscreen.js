@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
- 
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Linking,
-} from 'react-native';
- 
+import {StyleSheet,Text,TouchableOpacity,Linking,AsyncStorage} from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { Actions } from 'react-native-router-flux';
- 
-export default class ScanScreen extends Component {
+
+
+export default class ScanScreen extends Component {  
+
   onSuccess(e) {
     console.log(e.data);
+    AsyncStorage.getItem('token')
+    .then((token)=>{
+    fetch('https://unimedapi.herokuapp.com/session/create',
+    {
+    method:'post',
+    body:JSON.stringify({docid:e.data}),
+    headers:{'Accept':'application/json','Content-Type':'application/json','Authorization':'JWT '+token}})
+    .then((response) =>
+      {
+        Actions.scanafter({message:response})
+      })
+    })
     // Linking
     //   .openURL(e.data)
     //   .catch(err => console.error('An error occured', err));
   }
+  
  
   render() {
     return (
