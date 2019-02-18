@@ -8,21 +8,7 @@ export default class ScanScreen extends Component {
 
   onSuccess(e) {
     console.log(e.data);
-    AsyncStorage.getItem('token')
-    .then((token)=>{
-    fetch('https://unimedapi.herokuapp.com/session/create',
-    {
-    method:'post',
-    body:JSON.stringify({docid:e.data}),
-    headers:{'Accept':'application/json','Content-Type':'application/json','Authorization':'JWT '+token}})
-    .then((response) =>
-      {
-        Actions.scanafter({message:response})
-      })
-    })
-    // Linking
-    //   .openURL(e.data)
-    //   .catch(err => console.error('An error occured', err));
+    Actions.scanafter({uri:e.data})
   }
   
  
