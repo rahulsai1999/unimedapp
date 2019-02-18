@@ -146,8 +146,6 @@ export default class Register extends React.Component {
           </Form>
           <View>{this.displayErrorMessage()}</View>
           <View>{this.renderLoadingorRegister()}</View>
-          <Text>Have an account?</Text>
-          <Button block warning style={{marginTop:20,borderRadius:30}} onPress={this.onLogin.bind(this)}><Text>Login</Text></Button>
         </Content>
       </Container>
       </View>

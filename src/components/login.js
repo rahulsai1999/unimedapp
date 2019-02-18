@@ -80,7 +80,7 @@ export default class Login extends React.Component {
               <Input value={this.state.username}
               onChangeText={this.onChangeUserName.bind(this)}/>
             </Item>
-            <Item floatingLabel last>
+            <Item floatingLabel>
               <Label>Password</Label>
               <Input value={this.state.password}
               onChangeText={this.onChangePassword.bind(this)} 

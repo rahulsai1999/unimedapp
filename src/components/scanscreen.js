@@ -13,9 +13,10 @@ import { Actions } from 'react-native-router-flux';
  
 export default class ScanScreen extends Component {
   onSuccess(e) {
-    Linking
-      .openURL(e.data)
-      .catch(err => console.error('An error occured', err));
+    console.log(e.data);
+    // Linking
+    //   .openURL(e.data)
+    //   .catch(err => console.error('An error occured', err));
   }
  
   render() {
