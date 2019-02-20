@@ -32,7 +32,7 @@ export default class homescr extends React.Component {
       return(
 
         <View style={styles.mainComp}>
-        <Text style={styles.textComp}>Loading User Details</Text>
+        <Spinner/>
         </View>
       )
     }
@@ -40,8 +40,6 @@ export default class homescr extends React.Component {
     {
       return(
         <View>
-        <Text style={styles.textComp}>Number of Steps Today:</Text>
-        <Text style={styles.textComp}>{this.state.gfitData[0].steps[1].value}</Text>
         <ProgressCircle
             percent={(this.state.gfitData[0].steps[1].value/10000)*100}
             radius={70}
@@ -49,7 +47,7 @@ export default class homescr extends React.Component {
             color="#3399FF"
             shadowColor="#999"
             bgColor="#fff"
-            style={{marginLeft:25}}>
+            style={{marginLeft:25,marginTop:25}}>
             <Text style={{ fontSize: 18 }}>{this.state.gfitData[0].steps[1].value}/10000</Text>
         </ProgressCircle>
         </View>
@@ -57,9 +55,50 @@ export default class homescr extends React.Component {
     }
   }
   
+  renderDataOrSpinner()
+  {
+    if(this.state.isLoading)
+    {
+      return(
+        <View style={{flex:1}}>
+          <Spinner/>
+        </View>
+      )
+    }
+    else
+    {
+      return(
+        <View style={{flex:1}}>
+        <Text>Good Morning {this.state.userData.name}</Text>
+        <Text>Height: {this.state.userData.height} </Text>
+        <Text>Weight: {this.state.userData.weight}</Text>
+        <Text>Blood Group: {this.state.userData.bldgrp} </Text>
+        </View>
+      )
+    }
+  }
   
   componentDidMount()
   {
+    AsyncStorage.getItem('token')
+    .then((token)=>{
+    fetch('https://unimedapi.herokuapp.com/curuser',
+    {
+    method:'get',
+    headers:{'Accept':'application/json','Content-Type':'application/json','Authorization':'JWT '+token}})
+    .then(response=>response.json())
+    .then((response) =>
+      {
+        console.log(response);
+        this.setState(
+          {
+            isLoading:false,
+            userData:response
+          }
+        )
+      })
+    })
+
     const options = {
       startDate: "2019-02-19T00:00:17.971Z", // required ISO8601Timestamp
       endDate: new Date().toISOString() // required ISO8601Timestamp
@@ -85,6 +124,7 @@ export default class homescr extends React.Component {
       <Container>
         <Header><Text style={{color:'white',marginTop:15,fontSize:20 }}>Home</Text></Header>
         <Content padder>
+          {this.renderDataOrSpinner()}
           {this.renderGfitorSpinner()}
         </Content>
       </Container>
@@ -103,7 +143,7 @@ const styles ={
   {
     marginTop:25,
     marginLeft:25,
-    fontSize:30,
-    fontWeight:'400'
+    fontSize:15,
+    fontWeight:'300'
   }
 };
