@@ -3,6 +3,7 @@ package com.pdfviwe;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnative.googlefit.GoogleFitPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.rumax.reactnative.pdfviewer.PDFViewPackage;
 import com.facebook.react.ReactNativeHost;
@@ -25,6 +26,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new GoogleFitPackage(BuildConfig.APPLICATION_ID),
             new RNCameraPackage(),
             new PDFViewPackage()
       );
