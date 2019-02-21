@@ -6,6 +6,9 @@ import ProgressCircle from 'react-native-progress-circle';
 import {Spinner,Fab, Container, Header, Card, CardItem , Content, Button, Text, Body} from 'native-base';
 import Actions from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Foundation';
+import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon3 from 'react-native-vector-icons/FontAwesome5';
+
 var now=new Date().toISOString().substr(0,10);
 var xxx="T00:00:17.971Z";
 
@@ -49,20 +52,19 @@ export default class homescr extends React.Component {
         <View>
         <ProgressCircle
             percent={(this.state.gfitData[0].steps[0].value/10000)*100}
-            radius={70}
+            radius={60}
             borderWidth={8}
-            color="#3399FF"
+            color="#EF184B"
             shadowColor="#999"
             bgColor="#fff"
             style={{marginLeft:25,marginTop:25}}>
-            <Icon size={30} color="#3399FF" name="foot"></Icon>
-            <Text style={{ fontSize: 18 }}>{this.state.gfitData[0].steps[0].value}</Text>
+            <Icon size={30} color="#EF184B" name="foot"></Icon>
+            <Text style={{ fontSize: 18 }}>{this.state.gfitData[0].steps[0].value} steps</Text>
         </ProgressCircle>
         </View>
       )
     }
   }
-  
   renderGfit2orSpinner()
   {
     if(this.state.isG2)
@@ -80,14 +82,14 @@ export default class homescr extends React.Component {
         <View>
         <ProgressCircle
             percent={(this.state.gfitDist[0].distance/10000)*100}
-            radius={70}
+            radius={60}
             borderWidth={8}
-            color="#3399FF"
+            color="#89F200"
             shadowColor="#999"
             bgColor="#fff"
             style={{marginLeft:25,marginTop:25}}>
-            <Icon size={30} color="#3399FF" name="foot"></Icon>
-            <Text style={{ fontSize: 18 }}>{this.state.gfitDist[0].distance}</Text>
+            <Icon3 size={30} color="#89F200" name="running"></Icon3>
+            <Text style={{ fontSize: 18 }}>{Math.round(this.state.gfitDist[0].distance/1000)} km</Text>
         </ProgressCircle>
         </View>
       )
@@ -110,14 +112,14 @@ export default class homescr extends React.Component {
         <View>
         <ProgressCircle
             percent={(this.state.gfitCal[0].calorie/3000)*100}
-            radius={70}
+            radius={60}
             borderWidth={8}
             color="#3399FF"
             shadowColor="#999"
             bgColor="#fff"
             style={{marginLeft:25,marginTop:25}}>
-            <Icon size={30} color="#3399FF" name="foot"></Icon>
-            <Text style={{ fontSize: 18 }}>{this.state.gfitCal[0].calorie}</Text>
+            <Icon2 size={30} color="#3399FF" name="food"></Icon2>
+            <Text style={{ fontSize: 18 }}>{Math.round(this.state.gfitCal[0].calorie)} cal</Text>
         </ProgressCircle>
         </View>
       )
