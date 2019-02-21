@@ -5,6 +5,7 @@ import GoogleFit from 'react-native-google-fit';
 import ProgressCircle from 'react-native-progress-circle';
 import {Spinner,Fab, Container, Header, Card, CardItem , Content, Button, Text, Body} from 'native-base';
 import Actions from 'react-native-router-flux';
+import Icon from 'react-native-vector-icons/Foundation'
 
 GoogleFit.onAuthorize(() => {
   console.log('AUTH SUCCESS');
@@ -48,7 +49,8 @@ export default class homescr extends React.Component {
             shadowColor="#999"
             bgColor="#fff"
             style={{marginLeft:25,marginTop:25}}>
-            <Text style={{ fontSize: 18 }}>{this.state.gfitData[0].steps[1].value}/10000</Text>
+            <Icon size={30} color="#3399FF" name="foot"></Icon>
+            <Text style={{ fontSize: 18 }}>{this.state.gfitData[0].steps[1].value}</Text>
         </ProgressCircle>
         </View>
       )
