@@ -3,7 +3,7 @@ import {Platform, StyleSheet, View,AsyncStorage} from 'react-native';
 import Footerapp from './footerapp';
 import GoogleFit from 'react-native-google-fit';
 import ProgressCircle from 'react-native-progress-circle';
-import {Spinner,Fab, Container, Header, Card, CardItem , Content, Button, Text, Body} from 'native-base';
+import {Spinner,Fab, Container, Header, Card, CardItem , Content, Button, Text, Body, Grid, Row, Col} from 'native-base';
 import Actions from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Foundation';
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -230,10 +230,15 @@ export default class homescr extends React.Component {
       <Container>
         <Header><Text style={{color:'white',marginTop:15,fontSize:20 }}>Home</Text></Header>
         <Content padder>
-          {this.renderDataOrSpinner()}
-          {this.renderGfitorSpinner()}
-          {this.renderGfit2orSpinner()}  
-          {this.renderGfit3orSpinner()}      
+        <Grid>
+          <Row>{this.renderDataOrSpinner()}</Row>
+          <Row></Row>
+          <Row>
+            <Col>{this.renderGfitorSpinner()}</Col>
+            <Col>{this.renderGfit2orSpinner()}</Col>
+            <Col>{this.renderGfit3orSpinner()}</Col>
+          </Row>
+        </Grid>   
         </Content>
       </Container>
       <Footerapp/>
