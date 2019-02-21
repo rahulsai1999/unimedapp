@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,AsyncStorage} from 'react-native';
-import { Spinner } from 'native-base';
+import {Platform, StyleSheet, View,AsyncStorage} from 'react-native';
+import {Content,CardItem,Card,Body,Text,Left,Button,Spinner, Container, Toast } from 'native-base';
 import DisplayField from './displayfield';
-import { Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Actions } from 'react-native-router-flux';
 
 export default class scanafter extends React.Component {
   constructor()
@@ -14,7 +15,23 @@ export default class scanafter extends React.Component {
       sddet:{}
     }
   }
-  
+  termin()
+  {
+    AsyncStorage.getItem('token')
+    .then((token)=>{
+    fetch('https://unimedapi.herokuapp.com/session/terminate/'+this.state.sddet.message2,
+    {
+    method:'get',
+    headers:{'Authorization':'JWT '+token}})
+    .then(response=>response.json())
+    .then((response) =>
+      {
+        console.log(response);
+        Actions.home()
+      })
+    })
+
+  }
   renderDataOrSpinner()
   {
     if(this.state.isLoading)
@@ -29,12 +46,31 @@ export default class scanafter extends React.Component {
     else
     {
       return(
-        <View style={{flex:1}}>
-        <View>
-          <DisplayField label="Message 1" value={this.state.sddet.message1}/>
-          <DisplayField label="Message 2" value={this.state.sddet.message2}/>
-        </View>
-        </View>
+        <Content>
+          <Card style={{flex: 0}}>
+            <CardItem>
+              <Left>
+                <Body>
+                  <Text>Date</Text>
+                </Body>
+              </Left>
+            </CardItem>
+            <CardItem>
+              <Body>
+                <Text>{this.state.sddet.message1}</Text>
+                <Text>Session iD: {this.state.sddet.message2}</Text>
+              </Body>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Button transparent textStyle={{color: '#87838B'}} onPress={this.termin.bind(this)}>
+                  <Icon name="cancel" color='#87838B' />
+                  <Text>Terminate Session</Text>
+                </Button>
+              </Left>
+            </CardItem>
+          </Card>
+        </Content>
       )
     }
   }
@@ -64,9 +100,9 @@ export default class scanafter extends React.Component {
   
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <Container>
       {this.renderDataOrSpinner()}
-      </View>
+      </Container>
     );
   }
 }
