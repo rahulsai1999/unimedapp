@@ -4,6 +4,7 @@ import {Content,CardItem,Card,Body,Text,Left,Button,Spinner, Container, Toast } 
 import DisplayField from './displayfield';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Actions } from 'react-native-router-flux';
+import moment from 'moment';
 
 export default class scanafter extends React.Component {
   constructor()
@@ -49,15 +50,14 @@ export default class scanafter extends React.Component {
         <Content>
           <Card style={{flex: 0}}>
             <CardItem>
-              <Left>
                 <Body>
-                  <Text>Date</Text>
+                  <Text>{moment(new Date()).format("DD-MM-YYYY")}</Text>
                 </Body>
-              </Left>
             </CardItem>
             <CardItem>
               <Body>
                 <Text>{this.state.sddet.message1}</Text>
+                <Text></Text>
                 <Text>Session iD: {this.state.sddet.message2}</Text>
               </Body>
             </CardItem>
