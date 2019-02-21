@@ -9,7 +9,7 @@ export default class Footerapp extends Component {
         <Footer>
           <FooterTab>
             <Button vertical onPress={Actions.home.bind(this)}>
-              <Icon name="apps" />
+              <Icon name="home" />
               <Text>Home</Text>
             </Button>
             <Button vertical onPress={Actions.presc.bind(this)}>
@@ -21,7 +21,7 @@ export default class Footerapp extends Component {
               <Text>Reports</Text>
             </Button>
             <Button vertical onPress={Actions.scan.bind(this)}>
-              <Icon name="settings" />
+              <Icon name="calendar" />
               <Text>Session</Text>
             </Button>
             <Button vertical onPress={Actions.setings.bind(this)}>
