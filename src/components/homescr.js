@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, View,AsyncStorage} from 'react-native';
+import {Platform, StyleSheet, View,AsyncStorage,Dimensions} from 'react-native';
 import Footerapp from './footerapp';
 import GoogleFit from 'react-native-google-fit';
 import ProgressCircle from 'react-native-progress-circle';
-import {Spinner,Fab, Container, Header, Card, CardItem , Content, Button, Text, Body, Grid, Row, Col} from 'native-base';
+import {ListItem,Thumbnail,Spinner,Fab, Container, Header, Card, CardItem , Content, Button, Text, Body, Grid, Row, Col} from 'native-base';
 import Actions from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Foundation';
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon3 from 'react-native-vector-icons/FontAwesome5';
+
+var {width,height}=Dimensions.get('window');
 
 var now=new Date().toISOString().substr(0,10);
 var xxx="T00:00:17.971Z";
@@ -31,7 +33,8 @@ export default class homescr extends React.Component {
       userData:{},
       gfitData:{},
       gfitDist:{},
-      gfitCal:{}
+      gfitCal:{},
+      greeting:""
     };
   }
 
@@ -138,11 +141,17 @@ export default class homescr extends React.Component {
     else
     {
       return(
-        <View style={{flex:1}}>
-        <Text>Good Morning {this.state.userData.name}</Text>
-        <Text>Height: {this.state.userData.height} </Text>
-        <Text>Weight: {this.state.userData.weight}</Text>
-        <Text>Blood Group: {this.state.userData.bldgrp} </Text>
+        <View>
+          <Row style={{alignContent:'center'}}>
+            <Col><Text style={{textAlign:'center'}}>Height</Text></Col>
+            <Col><Text style={{textAlign:'center'}}>Weight</Text></Col>
+            <Col><Text style={{textAlign:'center'}}>BMI</Text></Col>
+          </Row>
+          <Row>
+            <Col><Text style={{textAlign:'center'}}>{this.state.userData.height}</Text></Col>
+            <Col><Text style={{textAlign:'center'}}>{this.state.userData.weight}</Text></Col>
+            <Col><Text style={{textAlign:'center'}}>{this.state.userData.weight/((this.state.userData.height/100)^2)}</Text></Col>
+          </Row>
         </View>
       )
     }
@@ -212,7 +221,11 @@ export default class homescr extends React.Component {
           })
       }
     });
-    
+
+    var hrs=new Date().getHours();
+    if (hrs<12){this.setState({greeting:"Morning"})}
+    else if (hrs>=12 && hrs<16){this.setState({greeting:"Afternoon"})}
+    else if (hrs>=16 && hrs<24){this.setState({greeting:"Evening"})}
     
   }
 
@@ -231,8 +244,13 @@ export default class homescr extends React.Component {
         <Header><Text style={{color:'white',marginTop:15,fontSize:20 }}>Home</Text></Header>
         <Content padder>
         <Grid>
-          <Row>{this.renderDataOrSpinner()}</Row>
-          <Row></Row>
+          <Row>
+          <Col><Thumbnail style={{height:65,width:65,borderRadius:50}} source={{ uri:'https://res.cloudinary.com/doweee6jj/image/upload/v1538589091/samples/people/smiling-man.jpg'}}/></Col>
+          <Col><Text style={{fontSize:25}}>Good {this.state.greeting} {this.state.userData.name}</Text></Col>
+          </Row>
+          <View style={{marginTop:10,marginBottom:10,borderBottomWidth: 0.75,borderBottomColor: 'black',width: width-20,}}/>
+          {this.renderDataOrSpinner()}
+          <View style={{marginTop:10,marginBottom:20,borderBottomWidth: 0.75,borderBottomColor: 'black',width: width-20,}}/>
           <Row>
             <Col>{this.renderGfitorSpinner()}</Col>
             <Col>{this.renderGfit2orSpinner()}</Col>
