@@ -8,6 +8,7 @@ import Actions from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Foundation';
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon3 from 'react-native-vector-icons/FontAwesome5';
+import moment from 'moment';
 
 var {width,height}=Dimensions.get('window');
 
@@ -156,6 +157,35 @@ export default class homescr extends React.Component {
       )
     }
   }
+
+  renderData2OrSpinner()
+  {
+    if(this.state.isLoading)
+    {
+      return(
+        <View style={{flex:1}}>
+          <Spinner/>
+        </View>
+      )
+    }
+    else
+    {
+      return(
+        <View>
+          <Row style={{alignContent:'center'}}>
+            <Col><Text style={{textAlign:'center'}}>Age</Text></Col>
+            <Col><Text style={{textAlign:'center'}}>Blood Group</Text></Col>
+            <Col><Text style={{textAlign:'center'}}>Gender</Text></Col>
+          </Row>
+          <Row>
+            <Col><Text style={{textAlign:'center'}}>{moment(new Date()).diff(this.state.userData.DOB,'years')}</Text></Col>
+            <Col><Text style={{textAlign:'center'}}>{this.state.userData.bldgrp}</Text></Col>
+            <Col><Text style={{textAlign:'center'}}>{this.state.userData.gender}</Text></Col>
+          </Row>
+        </View>
+      )
+    }
+  }
   
   componentDidMount()
   {
@@ -251,11 +281,14 @@ export default class homescr extends React.Component {
           <View style={{marginTop:10,marginBottom:10,borderBottomWidth: 0.75,borderBottomColor: 'black',width: width-20,}}/>
           {this.renderDataOrSpinner()}
           <View style={{marginTop:10,marginBottom:20,borderBottomWidth: 0.75,borderBottomColor: 'black',width: width-20,}}/>
+          {this.renderData2OrSpinner()}
+          <View style={{marginTop:10,marginBottom:20,borderBottomWidth: 0.75,borderBottomColor: 'black',width: width-20,}}/>
           <Row>
             <Col>{this.renderGfitorSpinner()}</Col>
             <Col>{this.renderGfit2orSpinner()}</Col>
             <Col>{this.renderGfit3orSpinner()}</Col>
           </Row>
+
         </Grid>   
         </Content>
       </Container>
