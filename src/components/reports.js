@@ -39,15 +39,14 @@ export default class reports extends React.Component {
 
   renderActualData()
   {
-    console.log(this.state.userData);
-    this.state.userData.records.map((val)=>{
+    this.state.userData.reports.map((val)=>{
       return(
         <View>
           <Listite rephead={val.title}
             docname={val.docid}
             reptext={val.remarks}
             date={val.date}
-            uri={val.reportUrl}></Listite>
+            uri={val.reportUrl}/>
         </View>
       )
     })
@@ -68,9 +67,7 @@ export default class reports extends React.Component {
 
       return(
         <View>
-          <List>
-            {this.renderActualData()}
-          </List>
+          {this.renderActualData()}
         </View>
       )
     }
