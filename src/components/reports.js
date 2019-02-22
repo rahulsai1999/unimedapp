@@ -39,7 +39,7 @@ export default class reports extends React.Component {
 
   renderActualData()
   {
-    this.state.userData.reports.map((val)=>{
+    return this.state.userData.reports.map((val)=>{
       return(
         <View>
           <Listite rephead={val.title}
