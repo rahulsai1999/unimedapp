@@ -1,40 +1,89 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, View} from 'react-native';
+import {Platform, StyleSheet, View,AsyncStorage} from 'react-native';
 import Footerapp from './footerapp';
-import { Container, Header,Fab,Icon,Card, CardItem , Content, Button, Text, Body ,H3,Right,List,ListItem} from 'native-base';
+import { Spinner, Container, Header,Fab,Icon,Card, CardItem , Content, Button, Text, Body ,H3,Right,List,ListItem} from 'native-base';
 import { Actions } from 'react-native-router-flux';
+import Listite from './listitem';
 
 export default class reports extends React.Component {
+  constructor()
+  {
+    super();
+    this.state={
+      isLoading:true,
+      userData:{}
+    };
+  }
+
+  componentDidMount()
+  {
+    AsyncStorage.getItem('token')
+    .then((token)=>{
+    fetch('https://unimedapi.herokuapp.com/curuser',
+    {
+    method:'get',
+    headers:{'Accept':'application/json','Content-Type':'application/json','Authorization':'JWT '+token}})
+    .then(response=>response.json())
+    .then((response) =>
+      {
+        console.log(response);
+        this.setState(
+          {
+            isLoading:false,
+            userData:response
+          }
+        )
+      })
+    });
+  }
+
+  renderActualData()
+  {
+    console.log(this.state.userData);
+    this.state.userData.records.map((val)=>{
+      return(
+        <View>
+          <Listite rephead={val.title}
+            docname={val.docid}
+            reptext={val.remarks}
+            date={val.date}
+            uri={val.reportUrl}></Listite>
+        </View>
+      )
+    })
+  }
+
+  renderDataorSpinner()
+  {
+    if(this.state.isLoading)
+    {
+      return(
+        <View>
+        <Spinner/>
+        </View>
+      )
+    }
+    else
+    {
+
+      return(
+        <View>
+          <List>
+            {this.renderActualData()}
+          </List>
+        </View>
+      )
+    }
+  
+  }
   render() {
     return (
       <View style={{height:1460}}>
       <Container>
         <Header><Text style={{color:'white',marginTop:15,fontSize:20 }}>Reports</Text></Header>
         <Content padder>
-        <List>
-            <ListItem thumbnail>
-              <Body>
-                <H3 style={{marginBottom:5}}>Oncology Report</H3>
-                <Text style={{marginBottom:5}}>Dr. Rajmohan</Text>
-                <Text note>From the prognosis of the report, there is no swelling in the interior cruciate part of 3 B</Text>
-              </Body>
-              <Right>
-                <Text note style={styles.centerText}>03/06/2018</Text>
-                <Button transparent onPress={Actions.pdf.bind(this,{url:'https://res.cloudinary.com/doweee6jj/image/upload/v1547263956/hpmh1ojmsa18pl4tw2og.pdf'})}>
-                  <Text>View Report</Text>
-                </Button>
-              </Right>
-            </ListItem>
-          </List>
+          {this.renderDataorSpinner()}
         </Content>
-        <Fab
-            direction="up"
-            containerStyle={{ }}
-            style={{ backgroundColor: '#5067FF' }}
-            position="bottomRight"
-            onPress={Actions.medicine.bind(this)}>
-            <Icon name="ios-battery-charging" />
-        </Fab>
       </Container>
         <Footerapp/>
       </View>
