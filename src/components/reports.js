@@ -42,7 +42,9 @@ export default class reports extends React.Component {
     return this.state.userData.reports.map((val)=>{
       return(
         <View>
-          <Listite rephead={val.title}
+          <Listite 
+            key={val}
+            rephead={val.title}
             docname={val.docid}
             reptext={val.remarks}
             date={val.date}

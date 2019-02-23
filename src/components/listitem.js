@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {StyleSheet} from 'react-native';
-import {ListItem,Body,H3,View,Right, Button, Icon, Text } from 'native-base';
+import {ListItem,Body,H3,View,Right, Button, Text } from 'native-base';
 import {Actions} from 'react-native-router-flux';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default class listite extends React.Component{
     render()
@@ -16,9 +17,7 @@ export default class listite extends React.Component{
               </Body>
               <Right>
                 <Text note style={styles.centerText}>{this.props.date}</Text>
-                <Button transparent onPress={Actions.pdf.bind(this,{url:this.props.uri})}>
-                  <Text>View Report</Text>
-                </Button>
+                <Button style={styles.custbutton} onPress={Actions.pdf.bind(this,{url:this.props.uri})}  style={styles.custbutton}><Text><Icon name="arrow-right" size={20}></Icon></Text></Button>
               </Right>
             </ListItem>
             </View>
@@ -29,7 +28,7 @@ export default class listite extends React.Component{
 const styles = StyleSheet.create({
     centerText: {
       flex: 1,
-      fontSize: 18,
+      fontSize: 15,
       padding: 5,
       color: '#777',
     },
@@ -44,4 +43,8 @@ const styles = StyleSheet.create({
     buttonTouchable: {
       padding: 16,
     },
+    custbutton:{
+      borderRadius:50,
+      maxWidth:50
+    }
   });
