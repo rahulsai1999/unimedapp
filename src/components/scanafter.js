@@ -51,7 +51,7 @@ export default class scanafter extends React.Component {
           <Card style={{flex: 0}}>
             <CardItem>
                 <Body>
-                  <Text>{moment(new Date()).format("DD-MM-YYYY")}</Text>
+                  <Text style={{fontSize:15}}>{moment(new Date()).format("DD-MM-YYYY")}</Text>
                 </Body>
             </CardItem>
             <CardItem>
@@ -62,12 +62,9 @@ export default class scanafter extends React.Component {
               </Body>
             </CardItem>
             <CardItem>
-              <Left>
-                <Button transparent textStyle={{color: '#87838B'}} onPress={this.termin.bind(this)}>
-                  <Icon name="cancel" color='#87838B' />
+                <Button style={{alignSelf:'center'}} textStyle={{color: '#87838B'}} onPress={this.termin.bind(this)}>
                   <Text>Terminate Session</Text>
                 </Button>
-              </Left>
             </CardItem>
           </Card>
         </Content>
