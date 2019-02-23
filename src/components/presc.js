@@ -16,11 +16,11 @@ export default class presc extends React.Component {
           <CardItem header>
               <Text>Dr.Rajmohan</Text>
               <Right>
-                <Text>29/03/2019</Text>
+                <Text>22/02/2019</Text>
               </Right>
           </CardItem>
           <CardItem>
-            <Text style={styles.centerText}>Crocin 10mg</Text>
+            <Text style={styles.centerText}>ALPRAX</Text>
               <Right>
                 <Text>
                 <Icon name="weather-sunset-up" size={25} color="orange" />
@@ -30,11 +30,11 @@ export default class presc extends React.Component {
                 </Text>
               </Right>
               <Right>
-                <Button  onPress={Actions.medicine.bind(this)}  style={styles.custbutton}><Text><Icon name="arrow-right" size={20}></Icon></Text></Button>
+                <Button  onPress={Actions.medicine.bind(this,{uri:"ALPRAX"})}  style={styles.custbutton}><Text><Icon name="arrow-right" size={20}></Icon></Text></Button>
               </Right>
           </CardItem>
           <CardItem>
-            <Text style={styles.centerText}>Zole F 20%</Text>
+            <Text style={styles.centerText}>VOLIX</Text>
               <Right>
                 <Text>
                 <Icon name="weather-sunset-up" size={25} color="orange" />
@@ -44,11 +44,11 @@ export default class presc extends React.Component {
                 </Text>
               </Right>
               <Right>
-                <Button  onPress={Actions.medicine.bind(this)}  style={styles.custbutton}><Text><Icon name="arrow-right" size={20}></Icon></Text></Button>
+                <Button  onPress={Actions.medicine.bind(this,{uri:"VOLIX"})}  style={styles.custbutton}><Text><Icon name="arrow-right" size={20}></Icon></Text></Button>
               </Right>
           </CardItem>
           <CardItem>
-            <Text style={styles.centerText}>Combiflam 15mg</Text>
+            <Text style={styles.centerText}>GLUCORYL-MV</Text>
               <Right>
                 <Text>
                 <Icon name="weather-sunset-up" size={25} color="orange" />
@@ -58,7 +58,57 @@ export default class presc extends React.Component {
                 </Text>
               </Right>
               <Right>
-                <Button  onPress={Actions.medicine.bind(this)}  style={styles.custbutton}><Text><Icon name="arrow-right" size={20}></Icon></Text></Button>
+                <Button  onPress={Actions.medicine.bind(this,{uri:"GLUCORYL-MV"})}  style={styles.custbutton}><Text><Icon name="arrow-right" size={20}></Icon></Text></Button>
+              </Right>
+          </CardItem>
+        </Card>
+        <Card>
+          <CardItem header>
+              <Text>Dr.Shrivastava</Text>
+              <Right>
+                <Text>23/02/2019</Text>
+              </Right>
+          </CardItem>
+          <CardItem>
+            <Text style={styles.centerText}>TAMLOCEPT-D</Text>
+              <Right>
+                <Text>
+                <Icon name="weather-sunset-up" size={25} color="orange" />
+                <Icon name="weather-sunny" size={25} color="black" />
+                <Icon name="weather-sunset-down" size={25} color="black" />
+                <Icon name="weather-night" size={25} color="orange" />
+                </Text>
+              </Right>
+              <Right>
+                <Button  onPress={Actions.medicine.bind(this,{uri:"TAMLOCEPT-D"})}  style={styles.custbutton}><Text><Icon name="arrow-right" size={20}></Icon></Text></Button>
+              </Right>
+          </CardItem>
+          <CardItem>
+            <Text style={styles.centerText}>DEXONA</Text>
+              <Right>
+                <Text>
+                <Icon name="weather-sunset-up" size={25} color="orange" />
+                <Icon name="weather-sunny" size={25} color="black" />
+                <Icon name="weather-sunset-down" size={25} color="black" />
+                <Icon name="weather-night" size={25} color="black" />
+                </Text>
+              </Right>
+              <Right>
+                <Button  onPress={Actions.medicine.bind(this,{uri:"DEXONA"})}  style={styles.custbutton}><Text><Icon name="arrow-right" size={20}></Icon></Text></Button>
+              </Right>
+          </CardItem>
+          <CardItem>
+            <Text style={styles.centerText}>URIMAX</Text>
+              <Right>
+                <Text>
+                <Icon name="weather-sunset-up" size={25} color="black" />
+                <Icon name="weather-sunny" size={25} color="black" />
+                <Icon name="weather-sunset-down" size={25} color="black" />
+                <Icon name="weather-night" size={25} color="orange" />
+                </Text>
+              </Right>
+              <Right>
+                <Button  onPress={Actions.medicine.bind(this,{uri:"URIMAX"})}  style={styles.custbutton}><Text><Icon name="arrow-right" size={20}></Icon></Text></Button>
               </Right>
           </CardItem>
         </Card>
