@@ -9,6 +9,7 @@ import Icon from 'react-native-vector-icons/Foundation';
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon3 from 'react-native-vector-icons/FontAwesome5';
 import moment from 'moment';
+import LinearGradient from 'react-native-linear-gradient';
 
 var {width,height}=Dimensions.get('window');
 
@@ -286,7 +287,30 @@ export default class homescr extends React.Component {
             <Col>{this.renderGfit2orSpinner()}</Col>
             <Col>{this.renderGfit3orSpinner()}</Col>
           </Row>
-
+          <View style={{marginTop:10,marginBottom:20,borderBottomWidth: 0.75,borderBottomColor: 'black',width: width-20,}}/>
+          <Row>
+            <Col>
+              <LinearGradient colors={['#7066CF', '#9B63AC']} style={styles.cardComp}>
+                <Text style={{color:'white'}}>
+                  Sign in with Facebook
+                </Text>
+              </LinearGradient>
+            </Col>
+            <Col>
+              <LinearGradient colors={['#7066CF', '#9B63AC']} style={styles.cardComp}>
+                <Text style={{color:'white'}}>
+                  Sign in with Facebook
+                </Text>
+              </LinearGradient>
+            </Col>
+            <Col>
+              <LinearGradient colors={['#7066CF', '#9B63AC']} style={styles.cardComp}>
+                <Text style={{color:'white'}}>
+                  Sign in with Facebook
+                </Text>
+              </LinearGradient>
+            </Col>
+          </Row>
         </Grid>   
         </Content>
       </Container>
@@ -307,5 +331,12 @@ const styles ={
     marginLeft:25,
     fontSize:15,
     fontWeight:'300'
+  },
+  cardComp:
+  {
+    margin:5,
+    fontSize:15,
+    padding:5,
+    borderRadius:15
   }
 };
