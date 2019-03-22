@@ -19,7 +19,7 @@ export default class reports extends React.Component {
   {
     AsyncStorage.getItem('token')
     .then((token)=>{
-    fetch('https://unimedapi.herokuapp.com/curuser',
+    fetch('https://visionapu.herokuapp.com/curuser',
     {
     method:'get',
     headers:{'Accept':'application/json','Content-Type':'application/json','Authorization':'JWT '+token}})

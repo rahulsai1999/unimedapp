@@ -191,7 +191,7 @@ export default class homescr extends React.Component {
   {
     AsyncStorage.getItem('token')
     .then((token)=>{
-    fetch('https://unimedapi.herokuapp.com/curuser',
+    fetch('https://visionapu.herokuapp.com/curuser',
     {
     method:'get',
     headers:{'Accept':'application/json','Content-Type':'application/json','Authorization':'JWT '+token}})
@@ -280,8 +280,6 @@ export default class homescr extends React.Component {
           </Row>
           <View style={{marginTop:10,marginBottom:10,borderBottomWidth: 0.75,borderBottomColor: 'black',width: width-20,}}/>
           {this.renderDataOrSpinner()}
-          <View style={{marginTop:10,marginBottom:20,borderBottomWidth: 0.75,borderBottomColor: 'black',width: width-20,}}/>
-          {this.renderData2OrSpinner()}
           <View style={{marginTop:10,marginBottom:20,borderBottomWidth: 0.75,borderBottomColor: 'black',width: width-20,}}/>
           <Row>
             <Col>{this.renderGfitorSpinner()}</Col>

@@ -13,7 +13,7 @@ export default class Medicine extends Component {
 
   componentDidMount()
   {
-    fetch('https://unimedapi.herokuapp.com/medicine/search/'+this.props.uri,{
+    fetch('https://visionapu.herokuapp.com/medicine/search/'+this.props.uri,{
     method:'get',})
     .then(response=>response.json())
     .then((response) =>

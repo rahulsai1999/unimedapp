@@ -20,7 +20,7 @@ export default class scanafter extends React.Component {
   {
     AsyncStorage.getItem('token')
     .then((token)=>{
-    fetch('https://unimedapi.herokuapp.com/session/terminate/'+this.state.sddet.message2,
+    fetch('https://visionapu.herokuapp.com/session/terminate/'+this.state.sddet.message2,
     {
     method:'get',
     headers:{'Authorization':'JWT '+token}})
@@ -76,7 +76,7 @@ export default class scanafter extends React.Component {
   {
     AsyncStorage.getItem('token')
     .then((token)=>{
-    fetch('https://unimedapi.herokuapp.com/session/create',
+    fetch('https://visionapu.herokuapp.com/session/create',
     {
     method:'post',
     body:JSON.stringify({docid:this.props.uri}),

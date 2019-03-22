@@ -42,7 +42,7 @@ export default class Register extends React.Component {
     const credentialsObject={username:this.state.username,password:this.state.password,name:this.state.name,dob:this.state.dob,height:this.state.height,weight:this.state.weight,email:this.state.email,bloodgrp:this.state.bloodgrp,gender:this.state.gender}
     this.setState({isLoading:true,error:false})
 
-    fetch('https://unimedapi.herokuapp.com/register',{
+    fetch('https://visionapu.herokuapp.com/register',{
     method:'post',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify(credentialsObject) })
