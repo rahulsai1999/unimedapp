@@ -5,6 +5,8 @@ import ImagePicker from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import CameraImage from '../../images/cameraicon.jpg';
 import DropdownImage from '../../images/dropdown.jpg';
+import LinearGradient from 'react-native-linear-gradient';
+
  
 class MealComponent extends Component
 {
@@ -63,8 +65,8 @@ class MealComponent extends Component
 
           return(
            
-  
-             <View  style={Styles.MealComponent}>
+             <View  style={{flex:1}}>
+             <LinearGradient colors={['#5ec1d1', '#5ec1d1']} style={Styles.MealComponent} >
              <Icon name="circle" size={15} color="#93114b" style={{alignItems:'center'}}/>                
 
                 <Text style={[Styles.MealComponentLeft,Styles.RightText]}>
@@ -75,6 +77,7 @@ class MealComponent extends Component
              <Icon name="camera" size={18} color="#93114b" />                
                 </View>
                 </TouchableOpacity>
+                </LinearGradient>
                 </View>
 
                 

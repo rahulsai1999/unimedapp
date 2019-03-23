@@ -224,7 +224,7 @@ render()
   {
     return(
       <View style={{flex:1}}>
-   <AppHeader headerText={this.state.UserDetails.name}/>
+   <AppHeader heading="Dashboard" headerText={this.state.UserDetails.name}/>
 
    <View style={
      {flex:8,

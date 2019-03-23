@@ -4,16 +4,19 @@ import Footerapp from './footerapp';
 import { Container, Header, Card, CardItem , Content, Button, Text, Body,ListItem,CheckBox,Right} from 'native-base';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Actions } from 'react-native-router-flux';
+import FooterTab from './reusables/FooterTab';
+import { AppHeader } from './reusables/AppHeader';
+
 
 export default class presc extends React.Component {
   render() {
     return (
-      <View style={{height:1460}}>
-      <Container>
-        <Header><Text style={{color:'white',marginTop:15,fontSize:20 }}>Prescriptions</Text></Header>
+      <View style={{flex:1}}>
+      <AppHeader heading="Prescriptions"/>
+      <View style={{flex:8}}>
         <Content style={styles.centerText}>
-        <Card>
-          <CardItem header>
+        <Card style={{borderRadius:10}}>
+          <CardItem  header>
               <Text>Dr.Rajmohan</Text>
               <Right>
                 <Text>22/02/2019</Text>
@@ -113,8 +116,10 @@ export default class presc extends React.Component {
           </CardItem>
         </Card>
         </Content>
-      </Container>
-        <Footerapp/>
+      </View>
+      <View style={{flex:1}}>
+        <FooterTab/>
+        </View>
       </View>
     );
   }

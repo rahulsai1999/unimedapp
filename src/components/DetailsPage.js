@@ -6,6 +6,8 @@ import {Header} from 'native-base';
 import MealComponent from './mealComponent';
 import {Input} from './reusables/Input';
 import {Actions} from 'react-native-router-flux';
+import LinearGradient from 'react-native-linear-gradient';
+import {AppHeader} from './reusables/AppHeader';
 
 
 
@@ -158,20 +160,32 @@ onGenerateReport()
 
     
     return (
+
+
       
-      <View style={{justifyContent:'center',height:990}}>
-      <Header><Text style={{color:'white',marginTop:15,fontSize:20 }}>Today's Summary</Text></Header>
+      <View style={{justifyContent:'center',flex:1}}>
+      <AppHeader heading="Today's Summary" />
+     
 
         <ScrollView style={{ backgroundColor: '#fcfcfc', padding: 15, flexDirection: 'column',}}>
       
 
         <View style={style.mealComponentBox}>
 
+        
+
+        
+
           <Collapse style={style.mealComp}>
+
+          
+
           <CollapseHeader >
+          <LinearGradient colors={['#fe5756', '#ff3f3e']} > 
             <View>
               <MealComponent mealType={"Breakfast"}/>
             </View>
+            </LinearGradient>
           </CollapseHeader>
           <CollapseBody >
             {this.renderMealDetailsOrCamera('Breakfast')}
@@ -246,12 +260,13 @@ onGenerateReport()
     </View>
 
     <View style={style.buttonBox}>
-
+    <LinearGradient colors={['#7066cf', '#7066cf']}>
             <TouchableOpacity style={style.buttonStyle} onPress={this.onGenerateReport.bind(this)} >
             <Text style={style.textStyle}>
             Generate Report
             </Text>
             </TouchableOpacity>
+            </LinearGradient>
 
     </View>
     </ScrollView>
@@ -309,7 +324,7 @@ const style={
   },
   textStyle: {
     alignSelf: 'center',
-    color: '#007aff',
+    color: '#fff',
     fontSize: 16,
     fontWeight: '600',
     paddingTop: 10,
@@ -318,13 +333,25 @@ const style={
   buttonStyle: {
     //flex: 1,
     alignSelf: 'stretch',
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#007aff',
+   // backgroundColor: '#fff',
+    //borderRadius: 5,
+    //borderWidth: 1,
+    //borderColor: '#007aff',
     marginLeft: 5,
-    marginRight: 5
+    marginRight: 5,
+    padding:5
   },
+
+  cardComp:{
+    height: 144,
+    width: 105,
+    borderRadius: 6,
+    elevation: 5,
+    padding: 13,
+    margin: 5,
+    backgroundColor:'#5ec1d1'
+    
+  }
 
 
 

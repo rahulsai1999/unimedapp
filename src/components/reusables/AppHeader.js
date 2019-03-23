@@ -29,7 +29,7 @@ if(curTime>17&&curTime<24){wishTimeofTheDay= 'Good Evening!'};
 
     <View style={{flex:2, justifyContent: 'center', paddingLeft: 25}}>
     <Text style={{fontSize:30}}>
-    Dashboard
+    {props.heading}
     </Text>
     </View>
 

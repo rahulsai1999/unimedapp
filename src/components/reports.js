@@ -4,6 +4,9 @@ import Footerapp from './footerapp';
 import { Spinner, Container, Header,Fab,Icon,Card, CardItem , Content, Button, Text, Body ,H3,Right,List,ListItem} from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import Listite from './listitem';
+import { AppHeader } from './reusables/AppHeader';
+import FooterTab from './reusables/FooterTab';
+
 
 export default class reports extends React.Component {
   constructor()
@@ -77,14 +80,19 @@ export default class reports extends React.Component {
   }
   render() {
     return (
-      <View style={{height:1460}}>
-      <Container>
-        <Header><Text style={{color:'white',marginTop:15,fontSize:20 }}>Reports</Text></Header>
-        <Content padder>
+      <View style={{flex:1}}>
+      <AppHeader heading="Reports"/>
+       {//} <Header><Text style={{color:'white',marginTop:15,fontSize:20 }}>Reports</Text></Header>
+    }
+    <View style={{flex:8}}>
+
           {this.renderDataorSpinner()}
-        </Content>
-      </Container>
-        <Footerapp/>
+
+          </View>
+
+          <View style={{flex:1}}>
+        <FooterTab/>
+        </View>
       </View>
     );
   }
