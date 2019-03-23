@@ -312,7 +312,8 @@ export default class homescr extends React.Component {
             </Col>
           </Row>
           <Row>
-          <Button onPress={Actions.fooddetailpage.bind(this)}><Text>Add</Text></Button>
+          <Col><Button onPress={Actions.fooddetailpage.bind(this)}><Text>Add Food</Text></Button></Col>
+          <Col><Button onPress={Actions.dietplan.bind(this,{uri:this.state.userData.avgrat})}><Text>Diet Plan</Text></Button></Col>
           </Row>
         </Grid>   
         </Content>
