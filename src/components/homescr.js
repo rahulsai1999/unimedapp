@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, View,AsyncStorage,Dimensions} from 'react-native';
 import Footerapp from './footerapp';
-import GoogleFit from 'react-native-google-fit';
+//import GoogleFit from 'react-native-google-fit';
 import ProgressCircle from 'react-native-progress-circle';
 import {ListItem,Thumbnail,Spinner,Fab, Container, Header, Card, CardItem , Content, Button, Text, Body, Grid, Row, Col} from 'native-base';
 import {Actions} from 'react-native-router-flux';
@@ -15,13 +15,13 @@ var {width,height}=Dimensions.get('window');
 
 var now=new Date().toISOString().substr(0,10);
 var xxx="T00:00:17.971Z";
-
+/*
 GoogleFit.onAuthorize(() => {
   console.log('AUTH SUCCESS');
 });
 
 GoogleFit.authorize();
-
+*/
 export default class homescr extends React.Component {
   constructor()
   {
@@ -209,6 +209,8 @@ export default class homescr extends React.Component {
       })
     })
 
+    /*
+    
     const options = {
       startDate: now+xxx, // required ISO8601Timestamp
       endDate: new Date().toISOString() // required ISO8601Timestamp
@@ -250,8 +252,12 @@ export default class homescr extends React.Component {
             isG3:false,
             gfitCal:res
           })
+
       }
+
+      
     });
+    */
 
     var hrs=new Date().getHours();
     if (hrs<12){this.setState({greeting:"Morning"})}

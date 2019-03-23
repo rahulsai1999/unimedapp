@@ -19,6 +19,8 @@ import ConfirmFoodScreen from './ConfirmFoodScreen';
 import FoodInformation from './FoodInformation';
 import DetailsPage from './DetailsPage';
 
+import Profile from './profile';
+
 export default class  RouterComponent extends Component
 {
   onLeftmet()
@@ -50,7 +52,7 @@ export default class  RouterComponent extends Component
           </Scene>
           <Scene key="home" hideNavBar type={ActionConst.RESET}>
             <Scene key="temp"
-            component={homescr} 
+            component={Profile} 
             title={"Report View"}/> 
           </Scene>
           <Scene key="reports" hideNavBar>
