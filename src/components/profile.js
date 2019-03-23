@@ -223,7 +223,7 @@ class Profile extends Component
 render()
   {
     return(
-      <View style={{flex:1}}>
+      <View style={{flex:1,justifyContent:'flex-end'}}>
    <AppHeader headerText={this.state.UserDetails.name}/>
 
    <View style={
@@ -239,7 +239,7 @@ render()
 
       </View>
 
-      <View style={{flex:1}}>
+      <View style={{flex:1,}}>
       <FooterTab/>
 
       </View>
