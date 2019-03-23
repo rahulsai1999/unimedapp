@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {Text,View} from 'react-native';
 import FoodConfirmComponent from './FoodConfirmComponent';
+import { Header } from 'native-base';
 
 
 const temp=[
@@ -54,12 +55,14 @@ class ConfirmFoodScreen extends Component
   {
 
     return(
-      <View style={{paddingLeft:10,paddingRight:10}}>
-      <Text style={{fontSize:20}}>
-      What was it ?
+      <View>
+        <Header><Text style={{color:'white',marginTop:15,fontSize:20 }}>Confirm your Food</Text></Header>
+        <View style={{paddingLeft:10,paddingRight:10}}>
+        <Text style={{fontSize:20}}>
       </Text>
-     {this.renderFoodComponents()}
+        {this.renderFoodComponents()}
       </View> 
+      </View>
     )
 
 

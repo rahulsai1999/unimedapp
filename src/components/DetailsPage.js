@@ -1,10 +1,8 @@
 import React,{Component} from 'react';
 import {View,Text,AsyncStorage,Image,TouchableOpacity,ScrollView} from 'react-native';
-import {AppHeader} from './reusables/AppHeader';
-import {Dashboard} from './reusables/dashboard';
 import FooterApp from './footerapp';
 import { Collapse, CollapseHeader, CollapseBody,AccordionList } from "accordion-collapse-react-native";
-import { Thumbnail, List, ListItem, Separator } from 'native-base';
+import {Header} from 'native-base';
 import MealComponent from './mealComponent';
 import {Input} from './reusables/Input';
 import {Actions} from 'react-native-router-flux';
@@ -161,7 +159,8 @@ onGenerateReport()
     
     return (
       
-      <View style={{justifyContent:'center',height:1050,}}>
+      <View style={{justifyContent:'center',height:990}}>
+      <Header><Text style={{color:'white',marginTop:15,fontSize:20 }}>Today's Summary</Text></Header>
 
         <ScrollView style={{ backgroundColor: '#fcfcfc', padding: 15, flexDirection: 'column',}}>
       
