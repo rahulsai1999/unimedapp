@@ -3,8 +3,10 @@ package com.pdfviwe;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.imagepicker.ImagePickerPackage;
+import com.rumax.reactnative.pdfviewer.PDFViewPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
+import com.imagepicker.ImagePickerPackage;
 import com.reactnative.googlefit.GoogleFitPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.facebook.react.ReactNativeHost;
@@ -27,9 +29,15 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new ImagePickerPackage(),
+            new PDFViewPackage(),
+            new VectorIconsPackage(),
             new LinearGradientPackage(),
+<<<<<<< HEAD
             new GoogleFitPackage(BuildConfig.APPLICATION_ID),
+=======
+            new ImagePickerPackage(),
+            new GoogleFitPackage(),
+>>>>>>> c3c86d11f2d7fefa5b226f8f586d345942379228
             new RNCameraPackage()
       );
     }

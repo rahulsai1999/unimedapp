@@ -18,24 +18,37 @@ if(curTime>17&&curTime<24){wishTimeofTheDay= 'Good Evening!'};
   onLogOut=()=>
   {
     //delete the token first and then navigate to login screen
-    AsyncStorage.clear();
-    Actions.auth();
+    //AsyncStorage.clear();
+    Actions.fooddetailpage();
   }
 
   return (
     
-    <View style={styles.viewStyle}>
+    <View style={{justifyContent:'center',flex:2,marginTop:25,backgroundColor:'white',justifyContent: 'flex-start', elevation: 2}}>
     <StatusBar backgroundColor="#fff" barStyle="dark-content" />
+
+    <View style={{flex:2, justifyContent: 'center', paddingLeft: 25}}>
+    <Text style={{fontSize:30}}>
+    Dashboard
+    </Text>
+    </View>
+
+    <View style={{flex:1,flexDirection:'row', paddingBottom: 20}}>
+
     <View style={styles.usericon}>
       <Image style={{}} source={require('.//../../../images/usericon.png')}/>
      </View>
+
      <View style={styles.usertext}>
-          <Text style={styles.morning}>{wishTimeofTheDay}</Text>
-      <Text style={styles.username}>{props.headerText}</Text>
+          <Text style={styles.username}>{props.headerText}</Text>
+          <Text style={styles.address}>{wishTimeofTheDay}</Text>
       </View>
+
        <TouchableOpacity style={styles.logoutButton} onPress={this.onLogOut.bind(this)}>
-            <Text style={{fontSize: 18}}>Logout</Text>
+            <Text style={{textAlign:'center'}}> + </Text>
        </TouchableOpacity>
+
+       </View>
     </View>
   );
 };
@@ -47,7 +60,7 @@ const styles = {
     justifyContent: 'flex-start',
     alignItems: 'center',
     height: 60,
-    // marginTop:30,
+    marginTop:30,
     // paddingTop: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -59,18 +72,20 @@ const styles = {
       flex: 1,
       height: 60,
       width: 60,
-      padding: 5,
+      paddingLeft: 25,
   },
   usertext: {
       flex: 4,
   },
-  morning: {
-      fontSize: 19,
+  address: {
+      fontSize: 15,
+      color: '#2e4592'
   },
   username: {
-    fontSize: 26,
+    fontSize: 25,
     lineHeight: 27,
-    marginBottom: 2
+    marginBottom: 2,
+    fontWeight: 'bold'
   },
   logoutButton:{
     flex: 1,
