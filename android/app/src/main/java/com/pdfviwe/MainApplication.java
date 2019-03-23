@@ -32,8 +32,9 @@ public class MainApplication extends Application implements ReactApplication {
             new PDFViewPackage(),
             new VectorIconsPackage(),
             new LinearGradientPackage(),
+
             new ImagePickerPackage(),
-            new GoogleFitPackage(),
+            // new GoogleFitPackage(),
             new RNCameraPackage()
       );
     }

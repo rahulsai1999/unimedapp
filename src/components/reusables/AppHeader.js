@@ -24,13 +24,17 @@ if(curTime>17&&curTime<24){wishTimeofTheDay= 'Good Evening!'};
 
   return (
     
-    <View style={{justifyContent:'center',flex:2,marginTop:25,backgroundColor:'white',justifyContent: 'flex-start', elevation: 2}}>
+    <View style={{justifyContent:'center',flex:2,backgroundColor:'white',justifyContent: 'flex-start', elevation: 2}}>
     <StatusBar backgroundColor="#fff" barStyle="dark-content" />
 
     <View style={{flex:2, justifyContent: 'center', paddingLeft: 25}}>
     <Text style={{fontSize:30}}>
     {props.heading}
     </Text>
+
+    <TouchableOpacity style={styles.foodLog} onPress={this.onLogOut.bind(this)}>
+            <Text style={{textAlign:'center',fontSize:40,color:'white',fontWeight:'normal'}}> + </Text>
+       </TouchableOpacity>
     </View>
 
     <View style={{flex:1,flexDirection:'row', paddingBottom: 20}}>
@@ -44,9 +48,7 @@ if(curTime>17&&curTime<24){wishTimeofTheDay= 'Good Evening!'};
           <Text style={styles.address}>{wishTimeofTheDay}</Text>
       </View>
 
-       <TouchableOpacity style={styles.logoutButton} onPress={this.onLogOut.bind(this)}>
-            <Text style={{textAlign:'center'}}> + </Text>
-       </TouchableOpacity>
+       
 
        </View>
     </View>
@@ -75,7 +77,7 @@ const styles = {
       paddingLeft: 25,
   },
   usertext: {
-      flex: 4,
+      flex: 5,
   },
   address: {
       fontSize: 15,
@@ -87,9 +89,17 @@ const styles = {
     marginBottom: 2,
     fontWeight: 'bold'
   },
-  logoutButton:{
+  foodLog:{
     flex: 1,
-  },
+    width: 55,
+    height: 55,
+    borderRadius: 50,
+    backgroundColor: 'blue',
+    elevation: 10,
+    position: 'absolute',
+    right: 10,
+    top: 20,
+  }
 };
 
 // Make the component available to other parts of the app
