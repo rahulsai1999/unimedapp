@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "accordion-collapse-react-native": "^0.1.9",
     "moment": "^2.24.0",
     "native-base": "^2.11.0",
     "react": "16.6.3",
@@ -14,6 +15,7 @@
     "react-native-camera": "^1.10.2",
     "react-native-elements": "^1.0.0",
     "react-native-google-fit": "^0.7.1",
+    "react-native-image-picker": "^0.28.0",
     "react-native-linear-gradient": "^2.5.4",
     "react-native-progress-circle": "^2.0.1",
     "react-native-qrcode-scanner": "^1.1.2",

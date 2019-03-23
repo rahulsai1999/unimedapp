@@ -13,11 +13,29 @@ import RegisterF from './register';
 import splashbefore from './splashbefore';
 import scanafter from './scanafter';
 
+//healthcate routes
+import ImagePicker from './ImagePicker';
+import ConfirmFoodScreen from './ConfirmFoodScreen';
+import FoodInformation from './FoodInformation';
+import DetailsPage from './DetailsPage';
+
 export default class  RouterComponent extends Component
 {
   onLeftmet()
   {
     Actions.home();
+  }
+
+  onLogOut()
+  {
+    //delete the token first and then navigate to login screen
+    AsyncStorage.removeItem('token');
+    AsyncStorage.removeItem('Breakfast');
+    AsyncStorage.removeItem('Lunch');
+    AsyncStorage.removeItem('Snacks');
+    AsyncStorage.removeItem('Dinner');
+
+    Actions.auth();
   }
 
   render()
@@ -72,6 +90,25 @@ export default class  RouterComponent extends Component
             component={scanafter} 
             title={"Session Created"}/> 
           </Scene>
+          <Scene key="fooddetailpage"
+            component={DetailsPage} 
+            title={"Full Day Details"}
+            hideNavBar="true" />  
+          <Scene key="uploadscreen"
+            component={ImagePicker} 
+            title={"Image Uploader"}
+            rightTitle="Logout"
+            onRight={this.onLogOut.bind(this)}/> 
+          <Scene key="confirmfoodscreen"
+            component={ConfirmFoodScreen} 
+            title={"Confirm Food"}
+            rightTitle="Logout"
+            onRight={this.onLogOut.bind(this)}/> 
+          <Scene key="foodinformationscreen"
+            component={FoodInformation} 
+            title={"Your Food Details"}
+            rightTitle="Logout"
+            onRight={this.onLogOut.bind(this)}  /> 
       </Scene>
     </Router>
   )
