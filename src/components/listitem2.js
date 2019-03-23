@@ -9,8 +9,8 @@ export default class listite extends React.Component{
     render()
     {
         return(
-            <View>
-            <ListItem thumbnail>
+          <View style={{backgroundColor:'white',borderRadius:20,marginTop:20,marginLeft:8,marginRight:8}}>
+          <ListItem thumbnail>
               <Body>
                 <H3 style={{marginBottom:5}}>{this.props.rephead}</H3>
                 <Text style={{marginBottom:5}}>{this.props.readyin} mins</Text>

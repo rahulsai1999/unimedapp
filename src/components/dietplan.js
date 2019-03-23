@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, View,AsyncStorage} from 'react-native';
-import Footerapp from './footerapp';
+//import Footerapp from './footerapp';
 import { Spinner, Container, Header,Fab,Icon,Card, CardItem , Content, Button, Text, Body ,H3,Right,List,ListItem} from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import Listite from './listitem2';
-
+import FooterTab from './reusables/FooterTab';
+import { AppHeader } from './reusables/AppHeader';
 export default class dietplan extends React.Component {
   constructor()
   {
@@ -76,14 +77,14 @@ export default class dietplan extends React.Component {
   }
   render() {
     return (
-      <View style={{height:1460}}>
-      <Container>
-        <Header><Text style={{color:'white',marginTop:15,fontSize:20 }}>Recommended Diet</Text></Header>
-        <Content padder>
+      <View style={{flex:1}}>
+      <AppHeader heading="Recommended Diet"/>
+      <View style={{flex:8}}>
           {this.renderDataorSpinner()}
-        </Content>
-      </Container>
-        <Footerapp/>
+      </View>
+      <View style={{flex:1}}>
+        <FooterTab/>
+        </View>
       </View>
     );
   }
