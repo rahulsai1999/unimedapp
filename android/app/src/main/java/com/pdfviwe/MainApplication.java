@@ -7,7 +7,6 @@ import com.imagepicker.ImagePickerPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.reactnative.googlefit.GoogleFitPackage;
 import org.reactnative.camera.RNCameraPackage;
-import com.rumax.reactnative.pdfviewer.PDFViewPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -31,8 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
             new ImagePickerPackage(),
             new LinearGradientPackage(),
             new GoogleFitPackage(BuildConfig.APPLICATION_ID),
-            new RNCameraPackage(),
-            new PDFViewPackage()
+            new RNCameraPackage()
       );
     }
 
