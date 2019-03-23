@@ -46,7 +46,9 @@ export default class Login extends React.Component {
   
   onLogin()
   {
-    const credentialsObject={username:this.state.username,password:this.state.password,}
+    //const credentialsObject={username:this.state.username,password:this.state.password,}
+    const credentialsObject={username:'helloworld1@gmail.com',password:'qwerty',}
+
     this.setState({isLoading:true,error:false})
 
     fetch('https://visionapu.herokuapp.com/login',{
@@ -56,6 +58,7 @@ export default class Login extends React.Component {
     .then(response=>response.json())
     .then((response) =>
       {
+       // Actions.home();
        this.setState({isLoading:false})
        if(response.error)
         {this.setState({error:true})}
