@@ -3,6 +3,7 @@ import {View,Text,Image,TouchableOpacity,AsyncStorage}  from 'react-native';
 import {Spinner} from './reusables/Spinner';
 import DetailViewComponent from './DetailViewComponent';
 import {Actions} from 'react-native-router-flux';
+import { Header } from 'native-base';
 
 
 class FoodInformation extends Component
@@ -182,13 +183,14 @@ class FoodInformation extends Component
   
   return(
     <View style={styles.mainComp}>
+    <Header style={{marginBottom:10}}><Text style={{color:'white',marginTop:15,fontSize:20 }}>Food Details</Text></Header>
     
     <View style={styles.comp1}>
     <View>
     <Text style={[styles.textStyle,{color:'#bc05d3'}]}>Meal Type:</Text>
-    <Text style={[styles.textStyle,{color:'#bc05d3'}]}>{this.props.mealType} </Text>
+    <Text style={[styles.textStyle,{color:'black'}]}>{this.props.mealType} </Text>
     <Text style={[styles.textStyle,{color:'#bc05d3'}]}>Meal item:</Text>
-    <Text style={[styles.textStyle,{color:'#bc05d3'}]}>{this.props.foodItem} </Text>
+    <Text style={[styles.textStyle,{color:'black'}]}>{this.props.foodItem} </Text>
     
     </View>
 
@@ -222,8 +224,7 @@ export default FoodInformation;
 
 const styles={
   mainComp:{
-    flex:1,
-    
+    flex:1
   },
   comp1:{
     flex:6,
@@ -235,6 +236,8 @@ const styles={
   },
   comp2:{
     flex:14,
+    paddingLeft:5,
+    paddingRight:5,
     //backgroundColor:'green',
     justifyContent:'center'
   },

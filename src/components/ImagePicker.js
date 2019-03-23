@@ -3,6 +3,7 @@ import React,{Component} from 'React';
 import {Image,View,Text,TouchableOpacity} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import {Spinner} from './reusables/Spinner';
+import { Header } from 'native-base';
 
 
 
@@ -123,10 +124,11 @@ export default class ImageComponent extends Component
         {
 
           return(
-            <View style={{flex:1,justifyContent:'center'}}>
+            <View>
+            <Header><Text style={{color:'white',marginTop:15,fontSize:20 }}>Choose Photo</Text></Header>
             <View style={{}}>
             <View style={styles.imageBox}>
-              <Image source={this.state.photo} style={{borderWidth:3,height:350,width:350}} />
+              <Image source={this.state.photo} style={{borderWidth:3,height:350,width:350,marginTop:100}} />
               </View>
               <View style={styles.firstButtonBox}>
               {this.renderSpinnerOrUpload()}
