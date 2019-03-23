@@ -12,6 +12,8 @@ import LoginForm from './login';
 import RegisterF from './register';
 import splashbefore from './splashbefore';
 import scanafter from './scanafter';
+import dietplan from './dietplan';
+import dietrecipe from './dietrecipe';
 
 //healthcate routes
 import ImagePicker from './ImagePicker';
@@ -110,7 +112,17 @@ export default class  RouterComponent extends Component
             component={FoodInformation} 
             title={"Your Food Details"}
             rightTitle="Logout"
-            onRight={this.onLogOut.bind(this)}  /> 
+            onRight={this.onLogOut.bind(this)}  />
+          <Scene key="dietplan" hideNavBar>
+            <Scene key="temp"
+            component={dietplan} 
+            title={"Report View"}/> 
+          </Scene>
+          <Scene key="dietrecipe" hideNavBar>
+            <Scene key="temp"
+            component={dietrecipe} 
+            title={"Report View"}/> 
+          </Scene>   
       </Scene>
     </Router>
   )
