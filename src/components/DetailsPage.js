@@ -41,23 +41,33 @@ export default class DetailsPage extends Component {
 
 onGenerateReport()
 {
+  /*
   totalcal=this.state.Breakfast.data.calories+this.state.Lunch.data.calories+this.state.Snacks.data.calories+this.state.Dinner.data.calories;
   totalcarbs=this.state.Breakfast.data.carbs+this.state.Lunch.data.carbs+this.state.Snacks.data.carbs+this.state.Dinner.data.carbs;
   totalfat=this.state.Breakfast.data.fats+this.state.Lunch.data.fats+this.state.Snacks.data.fats+this.state.Dinner.data.fats;
   totalprot=this.state.Breakfast.data.proteins+this.state.Lunch.data.proteins+this.state.Snacks.data.proteins+this.state.Dinner.data.proteins;
+*/
+
+
+totalcal=50;
+  totalcarbs=404
+  totalfat=100
+  totalprot=450
+
 
 
     
     
-   const obj={
-    totalcal,
-    totalcarbs,
-    totalfat,
-    totalprot,
-    cigsmoke:this.state.cigrrate,
-    alcoholglass:this.state.alcohol,
-    calburnt:1340,
-    }
+
+    const obj={
+      totalcal,
+      totalcarbs,
+      totalfat,
+      totalprot,
+      cigsmoke:this.state.cigrrate,
+      alcoholglass:this.state.alcohol,
+      calburnt:1340,
+      }
 
 
     const auth= `JWT ${this.state.token}`;
@@ -70,8 +80,8 @@ onGenerateReport()
       body:JSON.stringify(obj)
     })
     .then((response)=>response.json())
-    .then((response)=>{console.log(response);
-
+    .then((response)=>{console.log(response.avgrat);
+      AsyncStorage.setItem('avgrat',response.avgrat.toString());
       Actions.home()
 
     }
